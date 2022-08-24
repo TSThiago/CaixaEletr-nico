@@ -1,13 +1,3 @@
-// 1. Solicite o nome e cpf do seu cliente
-// 2. Ofereça a opção de saque ou depósito
-// 3. Pergunte um valor
-// 4. Caso a opção de saque seja a escolhida, remova o valor
-// inserido do saldo total.
-// 5. Caso a opção de depósito seja escolhida, adicione o valor
-// inserido do saldo total
-// 6. Pergunte se o seu usuário deseja continuar. (Insira 1 para
-// continuar e 2 para parar)
-// 7. Exiba o saldo total
 // 8. Exiba o maior valor inserido(independente de ser depósito ou
 // saque)
 // 9. Insira a média dos valores inseridos(independente de ser
@@ -21,25 +11,40 @@
 nome = prompt("Insira o seu nome")
 cpf = prompt("Insira o seu CPF")
 saldo = parseFloat(1000)
+maior = parseFloat(0)
+media = parseFloat(0)
+contador = parseInt(0)
 continuar = true
 
-while(continuar == true){
-opcoes = prompt("Selecione uma opção: \n1 - Saque \n2 - Depósito")
-valor = parseFloat(prompt("Insira o valor"))
+while (continuar == true) {
+    opcoes = prompt("Selecione uma opção: \n1 - Saque \n2 - Depósito")
+    valor = parseFloat(prompt("Insira o valor"))
+    if(valor > maior){
+        maior = valor
+    }
 
-// Saque
-if(opcoes == 1){
-    saldo = saldo - valor
-// Depósito
-}else if(opcoes == 2){
-    saldo = saldo + valor
-}
-console.log("Saldo atual: R$" +saldo.toFixed(2))
+    // Saque
+    if (opcoes == 1) {
+        saldo = saldo - valor
+        // Depósito
+    } else if (opcoes == 2) {
+        saldo = saldo + valor
+    }
+    
+    console.log("Saldo atual: R$" + saldo.toFixed(2))
+    media = media + valor
+    contador++
 
-parar = prompt("Insira 1 para fazer outra transação \nInsira 2 para parar")
-if(parar == 1){
-    continuar = true
-}else if(parar == 2){
-    continuar = false
+    parar = prompt("Insira 1 para fazer outra transação \nInsira 2 para parar")
+    if (parar == 1) {
+        continuar = true
+    } else if (parar == 2) {
+        continuar = false
+    }
 }
-}
+
+media = media/contador
+
+console.log("Saldo final: R$" + saldo.toFixed(2))
+console.log("O maior valor inserido foi: R$" + maior.toFixed(2))
+console.log("A média dos valores inseridos foi: R$" + media.toFixed(2))
