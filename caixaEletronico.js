@@ -21,7 +21,9 @@
 nome = prompt("Insira o seu nome")
 cpf = prompt("Insira o seu CPF")
 saldo = parseFloat(1000)
+continuar = true
 
+while(continuar == true){
 opcoes = prompt("Selecione uma opção: \n1 - Saque \n2 - Depósito")
 valor = parseFloat(prompt("Insira o valor"))
 
@@ -33,3 +35,11 @@ if(opcoes == 1){
     saldo = saldo + valor
 }
 console.log("Saldo atual: R$" +saldo.toFixed(2))
+
+parar = prompt("Insira 1 para fazer outra transação \nInsira 2 para parar")
+if(parar == 1){
+    continuar = true
+}else if(parar == 2){
+    continuar = false
+}
+}
