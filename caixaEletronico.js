@@ -1,17 +1,3 @@
-// 1. Solicite o nome e cpf do seu cliente
-// 2. Ofereça a opção de saque ou depósito
-// 3. Pergunte um valor
-// 4. Caso a opção de saque seja a escolhida, remova o valor
-// inserido do saldo total.
-// 5. Caso a opção de depósito seja escolhida, adicione o valor
-// inserido do saldo total
-// 6. Pergunte se o seu usuário deseja continuar. (Insira 1 para
-// continuar e 2 para parar)
-// 7. Exiba o saldo total
-// 8. Exiba o maior valor inserido(independente de ser depósito ou
-// saque)
-// 9. Insira a média dos valores inseridos(independente de ser
-// depósito ou saque)
 // 10. No final mostre todos os valores inseridos pelo usuário e o
 // cpf dele
 // REGRAS:
@@ -24,6 +10,8 @@ saldo = parseFloat(1000)
 maior = parseFloat(0)
 media = parseFloat(0)
 contador = parseInt(0)
+valores = []
+index = parseInt(0)
 continuar = true
 
 while (continuar == true) {
@@ -32,6 +20,9 @@ while (continuar == true) {
         opcoes = prompt("Selecione uma opção válida: \n1 - Saque \n2 - Depósito")
     }
     valor = parseFloat(prompt("Insira o valor"))
+    valores[index] = valor
+    index++
+    
     if(valor > maior){
         maior = valor
     }
@@ -64,3 +55,4 @@ media = media/contador
 console.log("Saldo final: R$" + saldo.toFixed(2))
 console.log("O maior valor inserido foi: R$" + maior.toFixed(2))
 console.log("A média dos valores inseridos foi: R$" + media.toFixed(2))
+console.log("Todos os valores inseridos do usuário com o CPF " +cpf+ ": " +valores)
