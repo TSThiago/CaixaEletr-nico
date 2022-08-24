@@ -1,3 +1,13 @@
+// 1. Solicite o nome e cpf do seu cliente
+// 2. Ofereça a opção de saque ou depósito
+// 3. Pergunte um valor
+// 4. Caso a opção de saque seja a escolhida, remova o valor
+// inserido do saldo total.
+// 5. Caso a opção de depósito seja escolhida, adicione o valor
+// inserido do saldo total
+// 6. Pergunte se o seu usuário deseja continuar. (Insira 1 para
+// continuar e 2 para parar)
+// 7. Exiba o saldo total
 // 8. Exiba o maior valor inserido(independente de ser depósito ou
 // saque)
 // 9. Insira a média dos valores inseridos(independente de ser
@@ -18,6 +28,9 @@ continuar = true
 
 while (continuar == true) {
     opcoes = prompt("Selecione uma opção: \n1 - Saque \n2 - Depósito")
+    while(opcoes < 1 || opcoes > 2){
+        opcoes = prompt("Selecione uma opção válida: \n1 - Saque \n2 - Depósito")
+    }
     valor = parseFloat(prompt("Insira o valor"))
     if(valor > maior){
         maior = valor
@@ -31,11 +44,14 @@ while (continuar == true) {
         saldo = saldo + valor
     }
     
-    console.log("Saldo atual: R$" + saldo.toFixed(2))
+    alert("Saldo atual: R$" + saldo.toFixed(2))
     media = media + valor
     contador++
 
     parar = prompt("Insira 1 para fazer outra transação \nInsira 2 para parar")
+    while(parar < 1 || parar > 2){
+        parar = prompt("Insira 1 para fazer outra transação \nInsira 2 para parar")
+    }
     if (parar == 1) {
         continuar = true
     } else if (parar == 2) {
