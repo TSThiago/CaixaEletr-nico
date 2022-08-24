@@ -1,5 +1,3 @@
-// 10. No final mostre todos os valores inseridos pelo usuário e o
-// cpf dele
 // REGRAS:
 // 1- Não deve ser permitido sacar um valor não disponível no saldo.
 // 2- Não deve ser permitido sacar nem depositar um valor negativo.
@@ -28,13 +26,22 @@ while (continuar == true) {
     }
 
     // Saque
-    if (opcoes == 1) {
+    if (opcoes == 1 && valor > saldo) {
+        alert("ERRO! Valor inserido maior que o saldo disponível!")
+    } 
+    if (opcoes == 1 && valor <= saldo) {
         saldo = saldo - valor
-        // Depósito
-    } else if (opcoes == 2) {
-        saldo = saldo + valor
+        alert("Saque efetuado")
     }
     
+    // Depósito
+    if (opcoes == 2 && valor < 0){
+        alert("ERRO! Valor inserido não válido!")
+    }
+    if (opcoes == 2 && valor >= 0){
+        saldo = saldo + valor
+        alert("Depósito efetuado")
+    }
     alert("Saldo atual: R$" + saldo.toFixed(2))
     media = media + valor
     contador++
