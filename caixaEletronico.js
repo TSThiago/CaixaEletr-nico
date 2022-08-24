@@ -20,3 +20,16 @@
 
 nome = prompt("Insira o seu nome")
 cpf = prompt("Insira o seu CPF")
+saldo = parseFloat(1000)
+
+opcoes = prompt("Selecione uma opção: \n1 - Saque \n2 - Depósito")
+valor = parseFloat(prompt("Insira o valor"))
+
+// Saque
+if(opcoes == 1){
+    saldo = saldo - valor
+// Depósito
+}else if(opcoes == 2){
+    saldo = saldo + valor
+}
+console.log("Saldo atual: R$" +saldo.toFixed(2))
